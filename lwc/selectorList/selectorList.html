@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Choose a mobile to add ">
+        <div class="slds-m-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th>
+                            <h1>Action</h1>
+                        </th>
+                        <th>
+                            <h1>Mobile Name</h1>
+                        </th>
+                        <th>
+                            <h1>Times picked in cart</h1>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={mobiles} for:item="mobile">
+                        <tr key={mobile} class="slds-line-height_reset">
+                            <td>
+                                <lightning-input type="checkbox" value={mobile.Id} onchange={handleChange}
+                                    class={mobile.Id}>
+                                </lightning-input>
+                            </td>
+                            <td>{mobile.Name}</td>
+                            <td>{mobile.Quantity}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <div class="slds-m-around_large">
+            <c-mobile-tile mobile-id={selectedMobile} onsimpleevent={handleSimpleEvent}></c-mobile-tile>
+        </div>
+    </lightning-card>
+
+</template>
